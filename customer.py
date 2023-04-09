@@ -137,19 +137,6 @@ for column in cat_var:
 for i in cat_var:
   print(i, ':', fp[i].unique())
 
-fp['job'].unique()
-
-fp['marital'].unique()
-
-fp['education_qual'].unique()
-
-fp['call_type'].unique()
-
-fp['mon'].unique()
-
-fp['prev_outcome'].unique()
-
-fp['y'].unique()
 
 fp
 
@@ -299,6 +286,11 @@ for lr in [0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.1,0.11,0.12,0.13,0.14,
   print("Learning rate : ", lr, " Train score : ", model.score(X_smt,y_smt), " Cross-Val score : ", np.mean(cross_val_score(model, X_smt, y_smt, cv=10)))
 
 model = xgb.XGBClassifier(learning_rate = 1, n_estimators = 100)
+
+
+
+
+
 model.fit(X_smt, y_smt)
 roc_auc_score(y_test,model.predict_proba(X_test)[:,1])
 
